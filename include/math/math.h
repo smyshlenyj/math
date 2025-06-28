@@ -36,7 +36,6 @@ public:
   Output multiply(Input input);
   Output divide(Input input);
   Output pow(Input input);
-  //Output getFactorial(int first);
- // Output countFactorial(int first);
+  Output factorial(Input input);
 };
 } // namespace math

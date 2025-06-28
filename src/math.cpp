@@ -1,4 +1,5 @@
 #include "math/math.h"
+#include <functional>
 
 namespace math {
 
@@ -16,6 +17,7 @@ math::Output math::Math::subtract(math::Input input) {
 math::Output math::Math::multiply(math::Input input) {
   return math::Output((input.first * input.second), "OK");
 }
+
 math::Output math::Math::divide(math::Input input) {
   if (input.second == 0)
     return math::Output(0, "ERROR");
@@ -23,6 +25,7 @@ math::Output math::Math::divide(math::Input input) {
   // double doubleRes = static_cast<double>(input.first) / input.second;
   return math::Output(input.first / input.second, "OK");
 }
+
 math::Output math::Math::pow(math::Input input) {
   if (input.second == 0)
     return math::Output(1, "OK");
@@ -33,21 +36,17 @@ math::Output math::Math::pow(math::Input input) {
     result *= input.first;
   }
 
-  return math::Output(result,"OK");
+  return math::Output(result, "OK");
 }
-/*
-std::string Math::getFactorial(int n) {
-  if (n < 0)
-    return "Введите положительное число!";
 
-  return "Факториал числа " + std::to_string(n) + " = " +
-         std::to_string(math::countFactorial(n));
-};
+math::Output math::Math::factorial(math::Input input) {
+  if (input.first < 0)
+    return math::Output(0, "ERROR");
 
-int Math::countFactorial(int n) {
-  if (n == 0)
-    return 1;
-  return n * countFactorial(n - 1);
-} 
-};*/
+  std::function<int(int)> factorial = [&](int n) -> int {
+    return (n <= 1) ? 1 : n * factorial(n - 1);
+  };
+  int result = factorial(input.first);
+  return math::Output(result, "OK");
+}
 } // namespace math
