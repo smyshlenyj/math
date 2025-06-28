@@ -1,39 +1,39 @@
-#include "math.h"
+#include "math/math.h"
 
 namespace math {
 
-Math::Math() {}
+math::Math::Math() {}
 // Output Math::calculate(Input input) { return Output{}; }
 
-Output Math::add(Input input) {
-  return Output((input.first + input.second), "OK");
+math::Output math::Math::add(math::Input input) {
+  return math::Output((input.first + input.second), "OK");
 }
 
-Output Math::subtract(Input input) {
-  return Output((input.first - input.second), "OK");
+math::Output math::Math::subtract(math::Input input) {
+  return math::Output((input.first - input.second), "OK");
 }
 
-Output Math::multiply(Input input) {
-  return Output((input.first * input.second), "OK");
+math::Output math::Math::multiply(math::Input input) {
+  return math::Output((input.first * input.second), "OK");
 }
-Output Math::divide(Input input) {
+math::Output math::Math::divide(math::Input input) {
   if (input.second == 0)
-    return Output(0, "ERROR");
+    return math::Output(0, "ERROR");
 
   // double doubleRes = static_cast<double>(input.first) / input.second;
-  return Output(input.first / input.second, "OK");
+  return math::Output(input.first / input.second, "OK");
 }
-Output Math::pow(Input input) {
+math::Output math::Math::pow(math::Input input) {
   if (input.second == 0)
-    return Output(1, "OK");
+    return math::Output(1, "OK");
   if (input.second < 0)
-    return Output(0, "ERROR");
+    return math::Output(0, "ERROR");
   int result = input.first;
   for (int i = 0; i < input.second - 1; ++i) {
     result *= input.first;
   }
 
-  return Output(result,"OK");
+  return math::Output(result,"OK");
 }
 /*
 std::string Math::getFactorial(int n) {
