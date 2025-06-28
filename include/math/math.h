@@ -30,7 +30,7 @@ public:
   Math();
  // Output calculate(Input input);
 
-private:
+//private:
   Output add(Input input);
   Output subtract(Input input);
   Output multiply(Input input);
