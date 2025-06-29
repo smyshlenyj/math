@@ -23,7 +23,7 @@ math::Output<double> math::Math::divide(math::Input input) {
     return math::Output<double>(0, "ERROR");
 
   // double doubleRes = static_cast<double>(input.first) / input.second;
-  return math::Output<double>(input.first / input.second, "OK");
+  return math::Output<double>(static_cast<double>(input.first) / input.second, "OK");
 }
 
 math::Output<int> math::Math::pow(math::Input input) {
