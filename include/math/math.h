@@ -33,14 +33,12 @@ class Math {
 
 public:
   Math();
- // Output calculate(Input input);
 
-//private:
-  Output<int> add(Input input);
-  Output<int> subtract(Input input);
-  Output<int> multiply(Input input);
-  Output<double> divide(Input input);
-  Output<int> pow(Input input);
-  Output<int> factorial(Input input);
+  Output<int> add(const Input& input);
+  Output<int> subtract(const Input& input);
+  Output<int> multiply(const Input& input);
+  Output<double> divide(const Input& input);
+  Output<int> pow(const Input& input);
+  Output<int> factorial(const Input& input);
 };
 } // namespace math
