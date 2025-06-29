@@ -20,7 +20,7 @@ math::Output<int> math::Math::multiply(math::Input input) {
 
 math::Output<double> math::Math::divide(math::Input input) {
   if (input.second == 0)
-    return math::Output<double>(0, "ERROR");
+    return math::Output<double>(0.0, "ERROR");
 
    double doubleRes = static_cast<double>(input.first) / input.second;
   return math::Output<double>(doubleRes, "OK");
