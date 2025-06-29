@@ -7,6 +7,8 @@ struct Input {
   int second;
   char action;
 
+
+  Input() = default;
   Input(int _first, int _second, char _action){
     first = _first;
     second = _second;
@@ -14,11 +16,14 @@ struct Input {
   }
 };
 
+template <typename T>
 struct Output {
-  double result;
+  
+  T result;
   std::string status;
 
-    Output(int _result, std::string _status) {
+    Output() = default;
+    Output(T _result, std::string _status) {
     result = _result;
     status = _status;
   }
@@ -31,11 +36,11 @@ public:
  // Output calculate(Input input);
 
 //private:
-  Output add(Input input);
-  Output subtract(Input input);
-  Output multiply(Input input);
-  Output divide(Input input);
-  Output pow(Input input);
-  Output factorial(Input input);
+  Output<int> add(Input input);
+  Output<int> subtract(Input input);
+  Output<int> multiply(Input input);
+  Output<double> divide(Input input);
+  Output<int> pow(Input input);
+  Output<int> factorial(Input input);
 };
 } // namespace math
